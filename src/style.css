@@ -1,0 +1,248 @@
+:root {
+  color: #ebf5ff;
+  background:
+    radial-gradient(circle at top, rgba(36, 73, 126, 0.25), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(193, 110, 41, 0.18), transparent 28%),
+    #020812;
+  font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+  line-height: 1.4;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 1px solid rgba(169, 210, 247, 0.18);
+  background: linear-gradient(180deg, rgba(23, 41, 66, 0.94), rgba(12, 19, 31, 0.95));
+  color: #f0f6ff;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+button:hover {
+  border-color: rgba(169, 210, 247, 0.46);
+  transform: translateY(-1px);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(153, 201, 248, 0.88);
+  outline-offset: 2px;
+}
+
+input[type='datetime-local'],
+input[type='text'],
+input[type='number'] {
+  width: 100%;
+  border: 1px solid rgba(169, 210, 247, 0.16);
+  background: rgba(7, 13, 22, 0.82);
+  color: inherit;
+  border-radius: 16px;
+  padding: 0.7rem 0.9rem;
+}
+
+input[type='range'] {
+  width: 100%;
+}
+
+#app,
+.shell,
+.scene-shell,
+.scene-root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.scene-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-root canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hud {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.panel {
+  pointer-events: auto;
+  border: 1px solid rgba(171, 210, 248, 0.14);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(5, 12, 20, 0.9), rgba(4, 9, 14, 0.76));
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.33);
+  backdrop-filter: blur(18px);
+}
+
+.panel-top {
+  padding: 1rem 1rem 1.1rem;
+}
+
+.panel-bottom {
+  padding: 0.9rem 1rem 1rem;
+}
+
+.panel-row,
+.panel-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel-title {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.panel-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.bottom-grid {
+  grid-template-columns: 1.4fr 1fr 0.8fr 1.2fr;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #a7cae9;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(1.1rem, 2vw, 1.9rem);
+  max-width: 20ch;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+.snapshot {
+  align-self: center;
+  color: #bdd1e2;
+  font-size: 0.92rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field span {
+  font-size: 0.83rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8fb2cf;
+}
+
+.field small,
+.field p {
+  margin: 0;
+  color: #b7c7d5;
+}
+
+.field strong {
+  font-size: 1.05rem;
+  color: #ffffff;
+}
+
+.field-inline .inline-actions,
+.search-controls,
+.speed-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.speed-controls input[type='number'] {
+  max-width: 120px;
+}
+
+.field-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  justify-content: center;
+}
+
+.field-toggle label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #d5e4f2;
+}
+
+.field-toggle input[type='checkbox'] {
+  inline-size: 1.05rem;
+  block-size: 1.05rem;
+}
+
+@media (max-width: 1180px) {
+  .panel-grid,
+  .bottom-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .hud {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .panel-title,
+  .panel-grid,
+  .bottom-grid,
+  .speed-controls,
+  .search-controls {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .speed-controls input[type='number'] {
+    max-width: none;
+  }
+
+  .snapshot {
+    justify-self: start;
+  }
+}
