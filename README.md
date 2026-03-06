@@ -4,6 +4,8 @@ Full-screen Three.js solar system explorer built with Vite and TypeScript.
 
 It renders the Sun, all 8 planets, and the current JPL planetary moon catalog using browser-side approximate orbit propagation. Users can set a local date/time, play the simulation forward at configurable speed, focus any body, and move through the scene in 3D.
 
+Live site: [kalinbas.github.io/solar-system](https://kalinbas.github.io/solar-system/)
+
 ## Features
 
 - Full-screen single-page Three.js experience
@@ -53,6 +55,12 @@ npm run dev
 ```
 
 Open the local Vite URL shown in the terminal.
+
+## GitHub Pages
+
+The app is deployed with GitHub Pages at [https://kalinbas.github.io/solar-system/](https://kalinbas.github.io/solar-system/).
+
+Deployments run automatically from `main` via [.github/workflows/deploy-pages.yml](.github/workflows/deploy-pages.yml).
 
 ## Available Scripts
 
